@@ -78,4 +78,15 @@ insert into noughts_and_crosses_boards (board_id, board_detail) values (6,
             '
 );
 
+insert into noughts_and_crosses_boards (board_id, board_detail) values (7,
+'   XX   
+        
+  OOOO  
+        
+        
+        
+        
+   XX   '
+);
+
 commit;
