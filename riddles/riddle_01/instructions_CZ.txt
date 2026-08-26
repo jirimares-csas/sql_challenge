@@ -1,0 +1,33 @@
+Úlohou jsou klasické piškvorky. V tabulce noughts_and_crosses_boards máte sedm různých situací a cílem je najít a vypsat nejlepší tah v závislosti na tom, kdo hraje. Budeme se omezovat jen na situace, že herní plán je čtvercový a má rozměr maximálně 12. Řádky označíme A - L, sloupce 1 - 12. Nebudeme přemýšlet dopředu, vyhodnocujeme jen aktuální situaci a to podle následující priority:
+
+1) existuje tah, kterým by daný hráč vyhrál - pak dotaz vrátí všechny takové pozice, které vyhrávají a to abecedně, oddělené čárkou a mezerou;
+2) vítězný tah neexistuje, ale soupeř má právě jeden vítězný tah - pak použiji jeho tah;
+3) vítězný tah neexistuje, ale soupeř má více možných vítězných tahů - tehdy připouštím prohru a vrátím jako tah hodnotu !
+4) ani jeden z hráčů v tomto kole nevyhraje - oběma vracím ?
+
+příklad (herní situace s board_id = 7):
+
+ |1|2|3|4|5|6|7|8|
+------------------
+A| | | |X|X| | | |
+------------------
+B| | | | | | | | |
+------------------
+C| | |O|O|O|O| | |
+------------------
+D| | | | | | | | |
+------------------
+E| | | | | | | | |
+------------------
+F| | | | | | | | |
+------------------
+G| | | | | | | | |
+------------------
+H| | | |X|X| | | |
+------------------
+
+poznámka: čáry jsou ilustrativní, v zadání bude pouze matice n x n (řádky jsou oddělené znakem chr(10) ).
+
+Hráč O (noughts) má vítězné tahy C2 a C7, dotaz tedy musí vrátit 'C2, C7'. Naopak X (crosses) vítězný tah nemá, soupeř má dva různé, takže vrací '!'.
+
+Výsledky si můžete zkontrolovat v tabulce noughts_and_crosses_solution.
