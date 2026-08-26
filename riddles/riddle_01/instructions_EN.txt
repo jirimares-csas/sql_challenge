@@ -1,0 +1,41 @@
+The task is a classic game of noughts and crosses (tic-tac-toe).
+
+The noughts_and_crosses_boards table contains seven different game situations. The goal is to determine and return the best move depending on which player is to move.
+
+We will only consider cases where the game board is square and has a maximum size of 12 × 12. Rows are labeled A - L and columns 1 - 12.
+
+We do not look ahead beyond the current move. Only the current board state is evaluated according to the following priority:
+
+1. If there is a move that allows the current player to win immediately, the query should return all such winning positions, sorted alphabetically and separated by a comma and a space.
+2. If no winning move exists for the current player, but the opponent has exactly one winning move, then that move should be returned.
+3. If no winning move exists for the current player, but the opponent has multiple possible winning moves, then defeat is considered unavoidable and the query should return !.
+4. If neither player can win on the current turn, then both players should receive ?.
+
+Example (game situation with board_id = 7):
+
+ |1|2|3|4|5|6|7|8|
+------------------
+A| | | |X|X| | | |
+------------------
+B| | | | | | | | |
+------------------
+C| | |O|O|O|O| | |
+------------------
+D| | | | | | | | |
+------------------
+E| | | | | | | | |
+------------------
+F| | | | | | | | |
+------------------
+G| | | | | | | | |
+------------------
+H| | | |X|X| | | |
+------------------
+
+Note: The grid lines above are for illustration purposes only. In the actual input, the board is represented solely as an n × n matrix, with rows separated by the chr(10) character.
+
+Player O (noughts) has two winning moves: C2 and C7. Therefore, the query should return 'C2, C7'.
+
+Player X (crosses) has no winning move, while the opponent has two different winning moves. Therefore, the query should return '!'.
+
+You can verify your results against the noughts_and_crosses_solution table.
