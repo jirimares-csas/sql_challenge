@@ -1,0 +1,48 @@
+This task is based on the classic Polybius square cipher and its decryption. In the polybius_square_ciphers table, you will find, besides the cipher identifier (cipher_id), both the encrypted Czech text (enc_message_cz) and encrypted English text (enc_message_en), as well as the password (enc_password) used for encryption.
+
+The encryption method works as follows:
+
+A 25-letter English alphabet is used, where the letters I and J are treated as the same character. A cipher alphabet is then created by first taking the unique letters from the password (preserving their original order in the password) and then appending the remaining letters of the English alphabet.
+
+This new alphabet is arranged into a 5×5 grid consisting of five rows and five columns. Each letter in the message is then encoded as a pair of digits corresponding to its position in the grid: the row number first, followed by the column number.
+
+Example:
+
+Suppose we have the encrypted text: 554143215121 and the password: HESLO
+
+First, we construct the cipher alphabet using the password HESLO and the English alphabet: ABCDEFGHIKLMNOPQRSTUVWXYZ
+
+This produces the following cipher alphabet: HESLOABCDFGIKMNPQRTUVWXYZ
+
+After arranging it into a 5×5 grid, we get:
+
+| |1|2|3|4|5|
+-------------
+|1|H|E|S|L|O|
+-------------
+|2|A|B|C|D|F|
+-------------
+|3|G|I|K|M|N|
+-------------
+|4|P|Q|R|T|U|
+-------------
+|5|V|W|X|Y|Z|
+
+Next, we split the encrypted text into pairs of digits: 55 41 43 21 51 21 and determine the corresponding character for each pair.
+
+55 = row 5, column 5 = Z
+41 = row 4, column 1 = P
+43 = row 4, column 3 = R
+21 = row 2, column 1 = A
+51 = row 5, column 1 = V
+21 = row 2, column 1 = A
+
+The decrypted message is therefore:
+
+ZPRAVA
+
+Your Task:
+
+For each message, output the decrypted text in both Czech and English.
+
+You can verify your results against the polybius_square_ciphers_solution table.
