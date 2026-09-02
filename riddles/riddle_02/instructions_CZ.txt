@@ -1,0 +1,26 @@
+Touto úlohou je klasický Polybiův čtverec a dešifrování podle něj. V tabulce polybius_square_ciphers najdete krom identifikátoru šifry (cipher_id) také český (enc_message_cz) and anglický (enc_message_en) zašifrovaný text a heslo (enc_password), které bylo pro šifrování použito.
+
+Princip šifrování je následující: Pracuje se s anglickou abecedou o 25 znacích (I a J se ztotožní). Poté se sestaví šifrovací abeceda tak, že se nejprve vezmou jedinečná písmenka hesla (ve stejném pořadí jako v hesle), a poté se postupně doplní znaky anglické abecedy. Tato nová abeceda se rozdělí na pět řádků po pěti sloupcích, vznikne tedy mřížka 5x5. Každé písmenko zprávy se pak zašifruje pomocí dvojice čísel, které odpovídají pořadí písmena v tabulce - nejprve řádek, pak sloupec.
+
+Příklad:
+
+Mám zašifrovaný text 554143215121 a heslo HESLO.
+
+Nejprve sestavím šifrovací abecedu z hesla HESLO a anglické abecedy ABCDEFGHIKLMONPQRSTUVWXYZ. Vznikne tak HESLOABCDFGIKMNPQRTUVWXYZ. Po rozdělení do tabulky vznikne:
+
+| |1|2|3|4|5|
+-------------
+|1|H|E|S|L|O|
+-------------
+|2|A|B|C|D|F|
+-------------
+|3|G|I|K|M|N|
+-------------
+|4|P|Q|R|T|U|
+-------------
+|5|V|W|X|Y|Z|
+
+
+Nyní si zadaný text rozdělím po dvojicích 55 41 43 21 51 21 a určím odpovídající znak. 55 je pátý řádek a pátý sloupec, to je Z. Dále 4. řádek a 1. sloupec - dává P. Obdobně 43 je R, 21 A, 51 V a 21 opět A. Vznikne text ZPRAVA.
+
+Vašim úkolem bude pro každou zprávu vypsat dešifrovaný text v češtině i angličtině. Výsledky si můžete porovnat s tabulkou polybius_square_ciphers_solution.
