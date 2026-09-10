@@ -1,0 +1,50 @@
+V této úloze je cílem popsat, jakým způsobem bude probíhat licitace v mariáši. Jednotlivé hry jsou uloženy v marias_games a možné licitace v marias_bids.
+
+V tabulce marias_games jsou napsány nejvyšší hry, které chtějí jednotlivý hráči hrát (p1 - předák (forhont), p2 - zadák a p3 - rozdávající).
+
+Jak probíhá licitace: začíná se od nejnižší hry (podle bid_ord_nr v tabulce marias_bids), tedy od 7 (sedma). Licitaci vždy začíná zadák (hráč 2). Pokud chce hrát aktuální či vyšší hru, zahlásí její název. Nyní musí reagovat předák. Pokud chce hrát tuto nebo vyšší hru, nahlásí "mám", jinak nahlásí "mlčím". Pokud je odpověď "mám" a zadák vyšší hru hrát nemůže, nahlásí "mlčím". Pokud hráč 1 nebo 2 nahlásí "mlčím", vstupuje do hry rozdávající hráč a ten nabídne hru, pokud je vyšší než aktuální. Hráč, který zůstal (tedy 1 nebo 2) pak reaguje opět slovy "mám" nebo "mlčím".
+
+Cílem je jednotlivé kroky napsat jako <hráč>: akce oddělené znakem chr(10).
+
+Ukažme si to na příkladu:
+
+U game_id = 2 máme 
+
+p1_bid = 100, 
+p2_bid = 7 
+p3_bid = 7L
+
+Licitaci začíná hráč 2 - nabídku má a tak hlásí
+
+2: sedma
+
+Hráč jedna chce hrát vyšší hru a proto odpoví
+
+1: mám
+
+Druhý hráč vyšší hru nabídnout nemůže, odpoví tak
+
+2: mlčím
+
+Nyní přichází řada na třetího hráče. Ten chce hrát vyšší hru, než je aktuálně vylicitovaná (sedma) a nahlásí:
+
+3: lepší sedma
+
+Forhont chce hrát vyšší hru a proto odpoví.
+
+1: mám
+
+Třetí hráč už vyšší hru nemá a nahlásí
+
+3: mlčím
+
+Výsledek tedy bude vypadat:
+
+2: sedma
+1: mám
+2: mlčím
+3: lepší sedma
+1: mám
+3: mlčím
+
+Výsledky si můžete zkontrolovat oproti tabulce marias_game_bids.
