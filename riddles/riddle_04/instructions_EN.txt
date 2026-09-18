@@ -1,0 +1,66 @@
+Playfair Cipher
+
+The Playfair cipher is based on the Polybius square. The cipher alphabet is constructed in exactly the same way: we start with the English alphabet, remove the letter J, and then prepend all unique letters from the keyword, deleting those letters from the original alphabet as we go. This produces a 5×5 cipher square.
+
+The plaintext is then divided into pairs of letters (bigrams), and each pair is encrypted according to the following rules:
+
+If both letters of the pair are in the same row of the square, they are replaced by the letters immediately to their right (wrapping around to the beginning of the row when necessary).
+
+If both letters of the pair are in the same column, they are replaced by the letters immediately below them (wrapping around to the top of the column when necessary).
+
+If the letters are in different rows and different columns, each letter is replaced by the letter that lies in the same row but in the column occupied by the other letter of the pair. In other words, the two letters form the corners of a rectangle, and each letter is replaced by the letter at the opposite corner in the same row.
+
+Decryption is performed in exactly the reverse manner.
+
+Example
+
+Suppose I have the ciphertext KEABBVWVGERBLN and the keyword is VERGILIUS.
+
+First, I construct the cipher alphabet:
+
+VERGILUSABCDFHKMNOPQTWXYZ
+
+
+and arrange it into a 5×5 square:
+
+VERGI
+LUSAB
+CDFHK
+MNOPQ
+TWXYZ
+
+
+Next, I split the ciphertext into bigrams:
+
+KE AB BV WV GE RB LN
+
+
+The letters K and E are in different rows and columns. Therefore, I decrypt K as D (the letter at the intersection of K's row and E's column), and E as I.
+
+Thus:
+
+KE → DI
+
+
+Next, A and B are in the same row. Since we are decrypting, we move to the letters on their left (the opposite direction of encryption), giving:
+
+AB → SA
+
+
+Continuing in the same way:
+
+BV → LI
+WV → TE
+GE → RV
+RB → IS
+LN → UM
+
+
+Putting everything together:
+
+DI SA LI TE RV IS UM
+
+
+which reads:
+
+“Dis aliter visum” ("The gods decided otherwise" or "It seemed otherwise to the gods").
