@@ -1,0 +1,30 @@
+Playfair. To je šifra založená na Polybiově čtverci. Šifrovací abeceda se sestaví zcela stejným způsobem, tedy vezmeme si anglickou abecedu, vyhodíme písmeno J a dopředu postupně doplníme všechny unikátní písmena z hesla, která zároveň smažeme z původní abecedy. Tím získáme šifrovací čtverec 5x5. Následně šifrovaný text rozdělíme do dvojic (na bigramy) a tyto dvojice šifrujeme následujícím způsobem:
+
+1) Pokud jsou obě písmena z dvojice na stejném řádku čtverce, pak je zašifrujeme písmeny vpravo od nich (pokud je písmeno zcela vpravo, pak vezmeme první písmeno z řádku).
+2) Pokud jsou obě písmena z dvojice ve stejném sloupci čtverce, pak je zašifrujeme písmeny pod nimi (pokud je písmeno zcela dole, pak vezmeme první písmeno ze sloupce).
+3) Pokud jsou písmena v rozdílných řádcích i sloupcích, pak každé písmeno z dvojice zašifruji jako písmeno na témže řádku, které odpovídá sloupci druhého písmene z dvojice.
+
+
+Dešifrování pak probíhá zcela opačně.
+
+Příklad:
+
+Mám zašifrovaný text KEABBVWVGERBLN a heslo je VERGILIUS. Sestavím šifrovací abecedu VERGILUSABCDFHKMNOPQTWXYZ a rozdělím ji po pěticích:
+
+VERGI
+LUSAB
+CDFHK
+MNOPQ
+TWXYZ
+
+Text rozdělím po dvojicích na KE AB BV WV GE RB LN
+
+KE se nacházejí v rozdílných sloupcích a řádcích, K tedy budu dešifrovat jako D (leží na průsečíku řádku s písmenem K a sloupce s E), obdobně E jako I.
+
+Tedy DI
+
+Dále AB jsou na stejném řádku, hledám tedy písmena vlevo od nich (při dešifrování je opačný směr), proto SA.
+
+BV bude LI, WV -> TE, GE -> RV, RB -> IS a konečně LN -> UM
+
+Celkem DI SA LI TE RV IS UM, neboli "Dis aliter visum"
