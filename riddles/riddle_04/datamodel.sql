@@ -4,7 +4,7 @@ create table playfair_ciphers_solution (cipher_id integer, dec_message varchar2(
 insert into playfair_ciphers (cipher_id, enc_message, enc_password)
 values
 (1,
-'KEABBVWVGERBLN',
+'KEABBVWVGERBLO',
 'VERGILIUS');
 
 insert into playfair_ciphers (cipher_id, enc_message, enc_password)
