@@ -1,0 +1,40 @@
+Cílem je zjistit, jakou hru by každý z hráčů na základě svých karet (svého kartu, jak by řekl mariášník) licitoval. V zadání jsou určeny karty pro všechny tři hráče - opět je první forhont, druhý a třetí zadák a rozdávající. 
+
+Karty jsou určeny hodnotami 7, 8, 9, X, J, Q, K a A - tedy francouzské označení s výjimkou 7 - 9. Barvy použijeme rovněž francouzské a to jako symboly ♥ (červené), ♠ (zelené), ♦ (kule) a ♣ (žaludy).
+
+Tedy A♥ je červené srdce a 7♦ je kulová sedma.
+
+A nyní popis licitace - samozřejmě zjednodušený tak, aby se dal zalgoritmizovat, někteří, zvláště pak odvážnější, hráči by se mnou zcela jistě nesouhlasili. Hry budou určeny od nejvyšší - jakmile ta je splněna, licitace končí, jinak zjišťuji nižší hru.
+
+a) 100 a dvě sedmy lepší - vyžaduji 5 červených s hláškou (1) a sedmou a rovněž druhou libovolnou barvu o pěti kartách se sedmou. Navíc mám alespoň tři ostré (2)
+
+b) 100 a dvě sedmy - to samé jako a), než první barva nemusí být červená
+
+c) 2 sedmy lepší - vyžaduji 5 červených se sedmou a druhou barvu po pěti se sedmou, navíc obě esa a zároveň jsem buď forhont nebo mám alespoň jednu desítku
+
+d) 2 sedmy - to samé co c), jen první barva nemusí být červená
+
+e) durch - nemám žádnou díru (3), beru všechny štychy
+
+f) betl - soupeř má maximálně jeden chyták (4)
+
+g) 100 a sedma lepší - mám alespoň 5 červených se sedmou a hláškou a utíkají mi maximálně dvě ostré (5)
+
+h) 100 a sedma - to samé co g), jen nemusí být červená
+
+i) 100 lepší - mám alespoň 5 červených s hláškou a utíkají mi maximálně dvě ostré; nebo mám 4 nejvyšší trumfy, beru všechny štichy a jsem na forhontě (výnos je nutný, kdyby tomu tak nebylo, a byl by špatný rozhoz, mohl bych během prvních čtyř štychů přijít o 4 ostré, aniž bych se dostal k výnosu)
+
+j) 100 - to samé jako i), jen nemusí být červená
+
+k) lepší 7 - mám pět červených se sedmou
+
+l) mám pět trumfů se sedmou
+
+Vysvětlivky:
+(0) s výjimkou her e) a f) je pořadí karet 7<8<9<J<Q<K<X<A. Pouze pro betl a durch je desítka na svém místě, tedy 7<8<9<X<J<Q<K<A.
+(1) hláška - J a Q ve stejné barvě
+(2) ostrá - X nebo A - tedy desítka a esa, bodované karty
+(3) dírou je myšlena chybějící karta v posloupnosti. Tedy pokud mám v jedné barvě pouze karty JQA, tak mi chybějící K přebije J i Q. Jedná se o díru. Musím mít vždy tolik vyšších karet, než je karet ve hře. Pokud má 7 karet jedné barvy, pak mi stačí mít eso a 6 dalších libovolných, pokud mám šestici, pak potřebuju mít A a K apod.
+(4) chyták - když si sestavím posloupnost karet počínaje sedmičkou, tak mám maximálně jednu kartu vyšší, než je chybějící karta v posloupnosti. Eso je KO kritérium vždy, pokud nemám alespoň 7 karet se sedmičkou. Tedy například pokud mám 7, 8, 9, J červených, tak mi chybí pouze 10, která je nižší než jediná karta J. Tedy mám jen jediný chyták. Pokud bych ale měl 7, 8, 10, J - pak je chybějící devítka nižší než dvě karty a jsem v háji.
+(5) - ostrá utíká tehdy, když mám kartu dané barvy a nemám obě ostré. Takže třeba u plonkové červené osmičky utíká eso i desítka. Zároveň desítka neutíká tehdy, když k ní mám a) eso, nebo b) krále, nebo c) dámu s další kartu barvy, nebo d) kluka a dvě karty barvy, nebo další 4 karty barvy
+
